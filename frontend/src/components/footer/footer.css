@@ -1,0 +1,15 @@
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #208c41;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #a4d46b,#8bc33c, #74a45b, #5c9c44);
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #8bc53f, #5d9a43);
+  }
+
+  .logo-small{
+    width: 50px;
+    height: 50px;
+  }

@@ -1,0 +1,13 @@
+.details-link{
+  text-decoration: none;
+}
+
+.details-image{
+  max-width: 560px;
+  object-fit: contain;
+}
+
+.card-image{
+  aspect-ratio: 4/3.5;
+  object-fit: cover;
+}

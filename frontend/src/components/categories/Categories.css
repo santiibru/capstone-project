@@ -1,0 +1,44 @@
+
+.card-img{
+  height: 180px;
+  object-fit: cover;
+}
+
+.button {
+  border: 1px solid #5d9a43;
+  background: transparent;
+  margin: 5px 5px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  box-shadow: 3px 3px 0px 0px #5d9a43;
+}
+
+.active {
+  background-color: #8bc53f;
+  color: #fff;
+}
+
+.card-categories{
+  border: 1px solid #5d9a43;
+  background: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-categories:hover{
+  box-shadow: 3px 4px 0px 0px #5d9a43;
+}
+
+.categories-title{
+  color: #8bc53f;
+}
+
+a{
+  text-decoration: none;
+}

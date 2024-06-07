@@ -1,0 +1,45 @@
+*{
+  
+    font-family: "Abel", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.section{
+  background-color: #eee;
+}
+.img{
+  width: 185px;
+}
+.small-texts{
+  text-decoration: none;
+  font-size: smaller;
+}
+.signup-btn{
+  font-size: small;
+  text-decoration: none;
+  color: white;
+  border-radius: .3rem;
+}
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #208c41;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #26d546, #3ac253, #3bae5b, #208c41);
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #26d546, #3ac253, #3bae5b, #208c41);
+  }
+  
+  @media (min-width: 768px) {
+  .gradient-form {
+  height: 100vh !important;
+  }
+  }
+  @media (min-width: 769px) {
+  .gradient-custom-2 {
+  border-top-right-radius: .3rem;
+  border-bottom-right-radius: .3rem;
+  }
+  }
