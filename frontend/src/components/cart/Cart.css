@@ -1,0 +1,18 @@
+.cart-items-image{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.cart-items-total{
+  border-top: 1px solid black;
+}
+
+.cart-items-title{
+  color: #8bc53f
+}
+
+.cart-items-clear{
+  font-size: 14px;
+  height: 35px;
+}

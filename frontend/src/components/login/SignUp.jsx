@@ -40,7 +40,7 @@ export default function SignUp() {
                   </div>
                   <div className="d-flex align-items-center justify-content-center pb-4">
                   <p className="mb-0 me-2 text-muted small-texts">Already registered?</p>
-                    <a href="/" className='gradient-custom-2 signup-btn p-2'>Sign In</a>
+                    <a href="/login" className='gradient-custom-2 signup-btn p-2'>Sign In</a>
                   </div>
                 </form>
                 </div>

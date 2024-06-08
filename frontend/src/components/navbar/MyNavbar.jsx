@@ -6,7 +6,8 @@ import "./Navbar.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
-export default function MyNavbar({ inputProduct, setInputProduct }) {
+export default function MyNavbar({ inputProduct, setInputProduct, cartProducts }) {
+  console.log(cartProducts)
   return (
   <Navbar expand="lg" className="superNav border-bottom py-1 bg-white d-flex">
     <Container>
@@ -38,6 +39,9 @@ export default function MyNavbar({ inputProduct, setInputProduct }) {
         <Nav className="ms-auto">
             <Link to="/cart" className="nav-link mx-2 text-uppercase">
               <FontAwesomeIcon icon={faCartShopping} />
+              <span className='cart-counter-navbar'>
+                {cartProducts.length === 0 ? "" : cartProducts.length}
+              </span>
             </Link>
           <Link to="/me" className="nav-link mx-2 text-uppercase">My Account</Link>
         </Nav>

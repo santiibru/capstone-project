@@ -5,20 +5,11 @@ import { Link } from 'react-router-dom';
 import "./SingleProduct.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoins } from '@fortawesome/free-solid-svg-icons'
-import { useCart } from "react-use-cart";
 
-export default function Details() {
+export default function Details({ handleAddProduct}) {
   const [details, setDetails] = useState([]);
-  const [cartProduct, setCartProduct] = useState({
-    id: details._id,
-    name: details.title,
-    price: details.price,
-    description: details.description,
-    category: details.category,
-  }); 
   const { id } = useParams();
   const navigate = useNavigate();
-  const { addItem } = useCart();
 
   useEffect(() => {
     const getProductDetails = async () => {
@@ -28,7 +19,6 @@ export default function Details() {
         if (response.ok) {
           let product = await response.json()
           setDetails(product)
-          setCartProduct(product)
         } else {
           console.log("error")
         }
@@ -55,7 +45,7 @@ export default function Details() {
             <FontAwesomeIcon className='mx-1 text-warning' icon={faCoins} />
               {details.price}</h3>
             <p>{details.description}</p>
-            <Button className='btn btn-success' onClick={()=>addItem(cartProduct)}>Add to cart</Button>
+            <Button className='btn btn-success' onClick={()=> handleAddProduct(details)}>Add to cart</Button>
             <Link to="/products" className='btn btn-primary ms-3'>Back</Link>
           </Col>
         </Row>

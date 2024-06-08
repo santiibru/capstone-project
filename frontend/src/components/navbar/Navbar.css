@@ -2,3 +2,9 @@
   width: 130px;
   height: 80px;
 }
+
+.cart-counter-navbar{
+  font-size: 12px;
+  vertical-align: super;
+  margin: 3px;
+}
