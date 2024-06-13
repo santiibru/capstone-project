@@ -16,14 +16,14 @@ const Footer = () =>
             </div>
             <hr className="clearfix w-100 d-md-none pb-0"/>
             <div className="col-md-3 mb-md-0 mb-3 mt-2">
-                <h5 className="text-uppercase text-dark mb-4">Help</h5>
+                <h5 className="text-uppercase mb-4">Help</h5>
                 <ul className="list-unstyled mt-2">
                     <li><a href="/shipping" className="text-white text-decoration-none">Shipping</a></li>
                     <li><a href="/payments" className="text-white text-decoration-none">Payment options</a></li>
                 </ul>
             </div>
             <div className="col-md-3 mb-md-0 mb-3 mt-2">
-                <h5 className="text-uppercase text-dark mb-4">Company</h5>
+                <h5 className="text-uppercase mb-4">Company</h5>
                 <ul className="list-unstyled">
                     <li><a href="/about" className="text-white text-decoration-none">About us</a></li>
                     <li><a href="/policy" className="text-white text-decoration-none">Policy Privacy</a></li>

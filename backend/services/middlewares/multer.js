@@ -1,12 +1,14 @@
-import multer from "multer"
+/*/import multer from "multer"
 import { v2 as cloudinary } from "cloudinary"
 import { CloudinaryStorage } from "multer-storage-cloudinary";
 import 'dotenv/config'
-          
+
+
+
 cloudinary.config({ 
-  cloud_name: 'di4hxdsky', 
-  api_key: '657182121641111', 
-  api_secret: '4zj6qkmEwxjCvjZmd9RBK-iKTQ0' 
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET 
 });
 
 export default multer({
@@ -17,3 +19,4 @@ export default multer({
     }
   })
 }).single("image")
+/*/

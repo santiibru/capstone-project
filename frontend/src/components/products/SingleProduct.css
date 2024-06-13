@@ -5,9 +5,22 @@
 .details-image{
   max-width: 560px;
   object-fit: contain;
+  border-radius: 10px;
 }
 
 .card-image{
   aspect-ratio: 4/3.5;
   object-fit: cover;
+}
+
+.card-card{
+  transition: all 0.2s ease-in-out;
+}
+.card-card:hover{
+  transform: scale(1.1);
+  border: 2px solid #5d9a43;
+}
+
+.products-title{
+  color: #8bc53f
 }

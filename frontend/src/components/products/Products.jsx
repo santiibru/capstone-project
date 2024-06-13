@@ -49,7 +49,7 @@ export default function Products({ inputProduct }) {
     }
   return (
     <Container className='mt-5'>
-      <h1>Products</h1>
+      <h1 className='products-title'>Products</h1>
         {filters.map((category, i) => (
           <button
           onClick={() => handelFilterButtonClick(category)}

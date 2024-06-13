@@ -19,15 +19,17 @@ export default function Cart({ cartProducts, handleAddProduct, handleRemoveProdu
       )}
          {cartProducts.map((item) => (
           <Col key={item._id} className='cart-item-list d-flex align-items-center justify-content-between mb-3'>
-            <img src={item.image}
-              alt={item.image}
+            <img src={item.image.url}
+              alt={item.title}
               className='cart-items-image'
             />
-            <p>{item.title}</p>
-            <button className='btn btn-danger' onClick={() => handleRemoveProduct(item)}>-</button>
-            <p>{item.quantity}</p>
-            <button className='btn btn-primary' onClick={() => handleAddProduct(item)}>+</button>
-            <p>Grön Points
+             <p className='fs-4 m-0'>{item.title}</p>
+             <div className='d-flex align-items-center'>
+                <button className='btn btn-outline-danger' onClick={() => handleRemoveProduct(item)}>-</button>
+                <p className='my-0 ms-3'>{item.quantity}</p>
+                <button className='btn btn-outline-primary ms-3' onClick={() => handleAddProduct(item)}>+</button>
+              </div>
+            <p className='fs-4 m-0'>Grön Points
               <FontAwesomeIcon className='mx-1 text-warning' icon={faCoins} />{item.price}</p>
            </Col>
          ))}

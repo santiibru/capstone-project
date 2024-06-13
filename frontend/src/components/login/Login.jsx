@@ -1,8 +1,38 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import "./Login.css"; 
 import logo from "../../assets/logo.png"
 
 export default function Login() {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const navigate = useNavigate();
+
+  const handleLoginSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      let res = await fetch("login", {
+        method: "POST",
+        body: JSON.stringify({
+          email: email,
+          password: password
+        }),
+        headers: {
+          "Content-type": "application/json"
+        }
+      });
+      console.log(res)
+      if (res.ok) {
+        alert("Login success")
+        navigate("/")
+      } else {
+        throw new Error("error")
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <section className="h-100 gradient-form section">
   <div className="container py-5 h-100">
@@ -19,20 +49,31 @@ export default function Login() {
                   <h4 className="mt-1 mb-5 pb-1">Grön Market</h4>
                 </div>
 
-                <form>
+                <form onSubmit={handleLoginSubmit}>
                   <p>Please login to your account</p>
 
                   <div data-mdb-input-init className="form-outline mb-4">
-                    <input type="email" id="form2Example11" className="form-control"
-                      placeholder="Email" />
+                     <input
+                        type="email"
+                        id="form2Example11"
+                        className="form-control"
+                        placeholder="Email"
+                        onChange={(e) => setEmail(e.target.value)}
+                        />
                   </div>
 
                   <div data-mdb-input-init className="form-outline mb-4">
-                    <input type="password" id="form2Example22" className="form-control" placeholder='Password'/>
+                        <input
+                          type="password"
+                          id="form2Example22"
+                          className="form-control"
+                          placeholder='Password'
+                          onChange={(e) => setPassword(e.target.value)}
+                        />
                   </div>
 
                   <div className="text-center pt-1 mb-5 pb-1">
-                    <button data-mdb-button-init data-mdb-ripple-init className="btn fa-lg gradient-custom-2 mb-3 px-5 text-white fs-5" type="button">Login</button>
+                    <button data-mdb-button-init data-mdb-ripple-init className="btn fa-lg gradient-custom-2 mb-3 px-5 text-white fs-5" type="submit">Login</button>
                         <br />
                     <a className="text-muted small-texts" href="#!">Forgot password?</a>
                   </div>

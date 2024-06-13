@@ -32,13 +32,20 @@
 }
 
 .card-categories:hover{
-  box-shadow: 3px 4px 0px 0px #5d9a43;
+  box-shadow: 4px 4px 0px 0px #5d9a43;
+  background-color: #8bc53f;
 }
 
 .categories-title{
   color: #8bc53f;
 }
 
+.categories-card-title{
+  font-weight: bolder;
+}
+
 a{
   text-decoration: none;
 }
+
+

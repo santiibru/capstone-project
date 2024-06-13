@@ -1,7 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import logo from "../../assets/logo.png"
 
 export default function SignUp() {
+  const [name, setName] = useState("")
+  const [lastname, setLastName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const navigate = useNavigate()
+
+  const handleUserSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      let res = await fetch("signup", {
+        method: "POST",
+        body: JSON.stringify({
+          name: name,
+          lastname: lastname,
+          email: email,
+          password: password
+        }),
+        headers: {
+          "Content-type": "application/json"
+        }
+      });
+      if (res.ok) {
+        alert("User created successfully")
+        setName("");
+        setLastName("");
+        setEmail("");
+        setPassword("");
+        navigate("/login")
+      } else {
+        throw new Error("error")
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div className="container py-5 h-100">
     <div className="row d-flex justify-content-center align-items-center h-100">
@@ -12,28 +49,40 @@ export default function SignUp() {
                   <img src={logo}
                      alt="logo" className='img'></img>
                 </div>
-
-                <form>
+                <form onSubmit={handleUserSubmit}>
                   <p>Create an account </p>
-
                   <div data-mdb-input-init className="form-outline mb-4">
-                    <input type="name" className="form-control"
-                        placeholder="Name"
-                      />
-                  </div>
-                    
-                  <div data-mdb-input-init className="form-outline mb-4">
-                    <input type="lastname" className="form-control"
-                        placeholder="Lastname"
+                  <input
+                    type="name"
+                    className="form-control"
+                    placeholder="Name"
+                    onChange={(e) => setName(e.target.value)}
                       />
                   </div>  
                   <div data-mdb-input-init className="form-outline mb-4">
-                    <input type="email" className="form-control"
-                      placeholder="Email"
+                  <input
+                    type="lastname"
+                    className="form-control"
+                    placeholder="Lastname"
+                    onChange={(e) => setLastName(e.target.value)}
+                      />
+                  </div>  
+                  <div data-mdb-input-init className="form-outline mb-4">
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="Email"
+                    onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div data-mdb-input-init className="form-outline mb-4">
-                    <input type="password" id="form2Example22" className="form-control" placeholder='Password'/>
+                  <input
+                    type="password"
+                    id="form2Example22"
+                    className="form-control"
+                    placeholder='Password'
+                    onChange={(e) => setPassword(e.target.value)}
+                    />
                   </div>
                   <div className="text-center pt-1 mb-5 pb-1">
                     <button data-mdb-button-init data-mdb-ripple-init className="btn fa-lg gradient-custom-2 mb-3 px-5 text-white" type="submit">Submit</button>

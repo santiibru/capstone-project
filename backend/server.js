@@ -4,9 +4,12 @@ import cors from "cors";
 import { config } from "dotenv";
 import { productRoute } from "./services/routes/product.route.js";
 import { registerRoute } from "./services/routes/register.route.js";
+import bodyParser from "body-parser"
+import { loginRoute } from "./services/routes/login.route.js";
 config()
 
 const app = express()
+app.use(bodyParser.json({ limit: '20mb' })); 
 const port = 3001
 app.use(cors());
 
@@ -14,6 +17,7 @@ app.use(express.json());
 
 app.use("/products", productRoute)
 app.use("/signup", registerRoute)
+app.use("/login", loginRoute)
 
 const router = express.Router();
 router.get('/', (req, res) => {

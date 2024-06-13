@@ -20,8 +20,8 @@ export default function Categories() {
         <Link to={`/products/Sports`}>
           <Card className="card-categories">
             <Card.Img variant="top" src={Sports} className='card-img'/>
-            <Card.Body>
-              <Card.Title className="categories-title">Sports</Card.Title>
+            <Card.Body className='body-categories'>
+              <Card.Title className="categories-card-title">Sports</Card.Title>
             </Card.Body>
           </Card>
         </Link>
@@ -30,7 +30,7 @@ export default function Categories() {
           <Card className="card-categories">
             <Card.Img variant="top" src={tech} className='card-img'/>
             <Card.Body>
-              <Card.Title className="categories-title">Tech</Card.Title>
+              <Card.Title className="categories-card-title">Tech</Card.Title>
             </Card.Body>
           </Card>
         </Col>
@@ -38,7 +38,7 @@ export default function Categories() {
           <Card className="card-categories">
             <Card.Img variant="top" src={luxury} className='card-img'/>
             <Card.Body>
-              <Card.Title className="categories-title">Luxury</Card.Title>
+              <Card.Title className="categories-card-title">Luxury</Card.Title>
             </Card.Body>
           </Card>
         </Col>
@@ -46,7 +46,7 @@ export default function Categories() {
           <Card className="card-categories">
             <Card.Img variant="top" src={retrogames} className='card-img'/>
             <Card.Body>
-              <Card.Title className="categories-title">Retro Games</Card.Title>
+              <Card.Title className="categories-card-title">Retro Games</Card.Title>
             </Card.Body>
           </Card>
         </Col>
@@ -54,7 +54,7 @@ export default function Categories() {
           <Card className="card-categories">
             <Card.Img variant="top" src={vintage} className='card-img'/>
             <Card.Body>
-              <Card.Title className="categories-title">Vintage</Card.Title>
+              <Card.Title className="categories-card-title">Vintage</Card.Title>
             </Card.Body>
           </Card>
         </Col>
@@ -62,7 +62,7 @@ export default function Categories() {
           <Card className="card-categories">
             <Card.Img variant="top" src={clothes} className='card-img'/>
             <Card.Body>
-              <Card.Title className="categories-title">Fashion & Lifestyle</Card.Title>
+              <Card.Title className="categories-card-title">Fashion & Lifestyle</Card.Title>
             </Card.Body>
           </Card>
         </Col>
@@ -70,7 +70,7 @@ export default function Categories() {
           <Card className="card-categories">
             <Card.Img variant="top" src={tradingcards} className='card-img'/>
             <Card.Body>
-              <Card.Title className="categories-title">Trading Cards</Card.Title>
+              <Card.Title className="categories-card-title">Trading Cards</Card.Title>
             </Card.Body>
           </Card>
         </Col>
@@ -78,7 +78,7 @@ export default function Categories() {
           <Card className="card-categories">
             <Card.Img variant="top" src={more} className='card-img'/>
             <Card.Body>
-              <Card.Title className="categories-title">Various</Card.Title>
+              <Card.Title className="categories-card-title">Various</Card.Title>
             </Card.Body>
           </Card>
         </Col>

@@ -1,7 +1,9 @@
 import React from 'react'
-import { Button, Col, Form, Row, Container } from 'react-bootstrap';
+import { Button, Col, Form, Row, Container, Image, Alert } from 'react-bootstrap';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import "./AddProduct.css"
+
 
 export default function AddProduct() {
   const [title, setTitle] = useState("");
@@ -10,6 +12,24 @@ export default function AddProduct() {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const navigate = useNavigate()
+  const [addProductBtn, setAddProductBtn] = useState(false);
+
+
+  const handleProductImageUpload = (e) => {
+    const file = e.target.files[0];
+    transformFile(file)
+  };
+  const transformFile = (file) => {
+    const reader = new FileReader()
+    if (file) {
+      reader.readAsDataURL(file)
+      reader.onloadend = () => {
+        setImage(reader.result)
+      }
+    } else {
+      setImage("")
+    }
+  };
 
   let handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,10 +38,10 @@ export default function AddProduct() {
         method: "POST",
         body: JSON.stringify({
           title: title,
-          image: image,
           description: description,
           price: price,
           category: category,
+          image: image
         }),
         headers: {
           "Content-type": "application/json"
@@ -29,8 +49,10 @@ export default function AddProduct() {
       });
       if (res.ok) {
         alert("Product added successfully")
+        setTimeout(() => {
+          setAddProductBtn(true)
+        }, 2000)
         setTitle("");
-        setImage("");
         setDescription("");
         setPrice("");
         setCategory("");
@@ -44,9 +66,9 @@ export default function AddProduct() {
   }
   return (
     <Container className='mt-5 mb-5'>
-      <h1>Add your product</h1>
+      <h1 className='products-title'>Add your product</h1>
 		<Form onSubmit={handleSubmit}>
-			<Row className="mb-3">
+			<Row className="mb-3 align-items-center">
 				<Form.Group as={Col} className='mt-4'>
 					<Form.Label>Product Name</Form.Label>
             <Form.Control
@@ -58,13 +80,16 @@ export default function AddProduct() {
 				</Form.Group>
 
 				<Form.Group as={Col} className='mt-4'>
-        <Form.Label className='form.file'>Add an image</Form.Label>
+          <Form.Label className='form.file'>Add an image</Form.Label>
             <Form.Control
               type="file"
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
+              accept="image/"
+              onChange={handleProductImageUpload}
             />
-      </Form.Group>
+        </Form.Group>
+            {image ?
+           <Image as={Col} src={image} className='image-preview mt-5'></Image>
+           : null}
 			</Row>
 
 			<Form.Group className="mb-3">
@@ -103,10 +128,13 @@ export default function AddProduct() {
 					</Form.Select>
 				</Form.Group>
 			</Row>
-			<Button variant="primary" type="submit">
-				Add Product
-			</Button>
-    </Form>
+        <Button type='submit'>Add Product</Button>
+      </Form>
+      {addProductBtn &&
+        <Alert variant='success'>
+          <Alert.Heading>Product added succesfully</Alert.Heading>
+          <Alert.Link href='/cart'>Checkout now</Alert.Link>
+        </Alert>}
     </Container>
 	);
 }
